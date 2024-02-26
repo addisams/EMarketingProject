@@ -11,7 +11,8 @@ namespace EMarketingProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_admin
     {
         public tbl_admin()
@@ -20,7 +21,11 @@ namespace EMarketingProject.Models
         }
     
         public int admin_id { get; set; }
+
+        [Required (ErrorMessage ="*")]
         public string admin_userName { get; set; }
+
+        [Required(ErrorMessage = "*")]
         public string admin_password { get; set; }
     
         public virtual ICollection<tbl_category> tbl_category { get; set; }
