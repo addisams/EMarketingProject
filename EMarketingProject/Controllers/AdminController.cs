@@ -35,6 +35,10 @@ namespace EMarketingProject.Controllers
 
         public ActionResult Create()
         {
+            if (Session["admin_id"]==null)
+            {
+                return RedirectToAction("login");
+            }
             return View();
         }
     }
