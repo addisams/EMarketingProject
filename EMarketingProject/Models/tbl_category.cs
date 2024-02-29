@@ -11,7 +11,8 @@ namespace EMarketingProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbl_category
     {
         public tbl_category()
@@ -20,7 +21,11 @@ namespace EMarketingProject.Models
         }
     
         public int category_id { get; set; }
+
+        [Required(ErrorMessage ="*")]
         public string category_Name { get; set; }
+
+        [Required(ErrorMessage = "*")]
         public string category_image { get; set; }
         public Nullable<int> category_foreginKey_admin { get; set; }
     

@@ -1,21 +1,32 @@
-﻿
+﻿@model EMarketingProject.Models.tbl_category
 @{
-    Layout = null;
+    ViewBag.Title = "Create";
 }
-<!Doctype html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>Add New Category</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</head>
-<body>
-    <div>
-        <button class="btn btn-primary">Add New Category</button>
+
+<h2>Add Category</h2>
+
+@using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="mb-3">
+        <label class="form-label">Category Name</label>
+        @Html.TextBoxFor(x => x.category_Name, new { @class = "form-control", @PlaceHolder = "Category Name" })
+
     </div>
-</body>
-</html>
+    <span style="color:red"> @Html.ValidationMessageFor(x => x.category_Name)</span>
 
+    <div class="mb-3">
+        <label for="cat_img_file" class="form-label">Upload Category Image</label>
+        <input type="file" id="imgFile" name="imgFile" class="form-control" required />
 
+    </div>
+    <span style="color:red"> @Html.ValidationMessageFor(x => x.category_image)</span>
+    <input type="submit" value="Create" class="btn btn-primary" />
+
+    <div class="form-group">
+        <p style="color:red">@ViewBag.error</p>
+    </div>
+}
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
