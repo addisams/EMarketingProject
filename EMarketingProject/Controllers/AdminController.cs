@@ -74,6 +74,7 @@ namespace EMarketingProject.Controllers
             return View(stu);
         }
 
+        //------------------code for upload image------------------------------------------
         public string UploadImage(HttpPostedFileBase file)
         {
             Random rand= new Random();
