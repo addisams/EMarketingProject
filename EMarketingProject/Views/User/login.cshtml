@@ -1,0 +1,66 @@
+﻿
+@model EMarketingProject.Models.tbl_user
+@{
+    ViewBag.Title = "login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="mb-3">
+        <label for="admin_id" class="form-label">Email address</label>
+        @*<input type="email" class="form-control" id="admin_id" aria-describedby="emailHelp">*@
+        @*@Html.TextBoxFor(x => x.user_name, new { @class = "form-control", @PlaceHolder = "User Id" })*@
+        @Html.TextBoxFor(x=>x.user_Name, new { @class = "form-control", @PlaceHolder = "User Id" })
+
+    </div>
+    <span style="color:red"> @Html.ValidationMessageFor(x => x.user_Name)</span>
+    <div class="mb-3">
+        <label for="admin_password" class="form-label">Password</label>
+        @*<input type="password" class="form-control" id="admin_password">*@
+        @*@Html.PasswordFor(x => x.user_password, new { @class = "form-control", @PlaceHolder = "Admin Password" })*@
+        @Html.PasswordFor(x => x.user_password, new { @class = "form-control", @PlaceHolder = "Admin Password" })
+
+    </div>
+    <span style="color:red"> @Html.ValidationMessageFor(x => x.user_password)</span>
+
+    @*<button type="submit" class="btn btn-primary">Submit</button>*@
+    <input type="submit" value="Login" class="btn btn-primary" />
+}
+
+<div class="mb-3 form-group">
+    <p style="color:red">@ViewBag.error</p>
+</div>
+
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login</title>
+    </head>
+    <body>
+        <h2>login</h2>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </body>
+    </html>*@

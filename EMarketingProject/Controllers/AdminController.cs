@@ -60,7 +60,7 @@ namespace EMarketingProject.Controllers
                 cat.category_foreginKey_admin=Convert.ToInt32(Session["admin_id"].ToString());
                 db.tbl_category.Add(cat);
                 db.SaveChanges();
-                return RedirectToAction("Create");
+                return RedirectToAction("CategoryDashboard");
 
             }
             return View();
@@ -69,7 +69,7 @@ namespace EMarketingProject.Controllers
         {
             int pageSize = 5, pageIndex = 1;
             pageIndex=page.HasValue ? Convert.ToInt32(page):1;
-            var list=db.tbl_category.Where(x=>x.category_foreginKey_admin==1).ToList();
+            var list=db.tbl_category.Where(x=>x.category_foreginKey_admin>0).OrderByDescending(x => x.category_id).ToList();
             IPagedList<tbl_category> stu = list.ToPagedList(pageIndex, pageSize);
             return View(stu);
         }
